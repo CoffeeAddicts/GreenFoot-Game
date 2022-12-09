@@ -25,6 +25,7 @@ public class Car extends Actor
     public void setGravity()
     {
         Actor floor = getOneIntersectingObject(Floor.class);
+        Actor platform = getOneIntersectingObject(Platform.class);
         Actor floor2 = (Actor) getWorld().getObjects(Floor.class).get(0);
         
         if(!isTouching(Floor.class))
@@ -36,6 +37,12 @@ public class Car extends Actor
         {
             vSpeed = 0;   
             setLocation(getX(),floor2.getY()-60);
+        }
+        
+        if(isTouching(Platform.class))
+        {
+            vSpeed = 0;   
+            
         }
     }
         public void moveAround()
