@@ -17,7 +17,6 @@ public class Platform extends Actor
     {
         getImage().scale(60, 20);
     }
-    
     public void act()
     {
         // Add your action code here.

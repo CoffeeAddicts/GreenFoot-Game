@@ -32,7 +32,11 @@ public class MyWorld extends World
         addObject(floor,getWidth()/2,getHeight());
         
         Actor platform = new Platform();
-        addObject(platform,getWidth()-100,getHeight()-100);
+        addObject(platform,getWidth()-100,getHeight()-150);
+        Actor platform2 = new Platform();
+        addObject(platform2,getWidth()-250,getHeight()-250);
+        Actor platform3 = new Platform();
+        addObject(platform3,getWidth()-350,getHeight()-350);
         
         
         
