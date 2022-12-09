@@ -14,7 +14,7 @@ public class Car extends Actor
      */
     
     int vSpeed = 0;
-    final int GRAVITY = 1;
+    final double GRAVITY = 1;
     public void act()
     {
         setGravity();
@@ -25,15 +25,17 @@ public class Car extends Actor
     public void setGravity()
     {
         Actor floor = getOneIntersectingObject(Floor.class);
+        Actor floor2 = (Actor) getWorld().getObjects(Floor.class).get(0);
         
         if(!isTouching(Floor.class))
         {        
             vSpeed += GRAVITY;
-            setLocation(getX(), getY()+ vSpeed);
+            setLocation(getX(), getY()+ (vSpeed/2));
         }
         else
         {
-            vSpeed = 0;    
+            vSpeed = 0;   
+            setLocation(getX(),floor2.getY()-60);
         }
     }
         public void moveAround()
@@ -41,7 +43,7 @@ public class Car extends Actor
         if(Greenfoot.isKeyDown("s"))
         setLocation(getX(),getY()+3);
         if(Greenfoot.isKeyDown("w"))
-        setLocation(getX(),getY()-3);
+        setLocation(getX(),getY()-10);
         if(Greenfoot.isKeyDown("a"))
         setLocation(getX()-3,getY());
         if(Greenfoot.isKeyDown("d"))

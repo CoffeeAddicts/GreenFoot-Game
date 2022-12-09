@@ -14,12 +14,11 @@ public class MyWorld extends World
      * 
      */
     
-    
-    int vSpeed = 0;
-    final int GRAVITY = 1;
+
+        
     public MyWorld()
     {   
-        super(600, 400, 1); 
+        super(1000, 400, 1); 
         
 
         
