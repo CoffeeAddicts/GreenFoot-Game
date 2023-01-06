@@ -33,17 +33,16 @@ public class Car extends Actor
     {
         if(Greenfoot.isKeyDown("d"))
         {
-            //getImage().mirrorHorizontally();
+            setImage("blob_right-removebg-preview.png");
             moveRight();
         }
         if(Greenfoot.isKeyDown("a"))
         {
-            //getImage().mirrorHorizontally();
+            setImage("blob_left-removebg-preview.png");
             moveLeft();
         }
         if(Greenfoot.isKeyDown("w"))
         {
-            //getImage().mirrorHorizontally();
             if(onGround())
             {
                 jump();
