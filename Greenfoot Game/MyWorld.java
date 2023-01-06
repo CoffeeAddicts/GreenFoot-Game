@@ -43,6 +43,7 @@ public class MyWorld extends World
         
         addObject(CountDown,80,20);
         CountDown.setValue(60);
+        
     }
     
     public void act()
@@ -62,7 +63,7 @@ public class MyWorld extends World
         }
     
         
-        if (Greenfoot.isKeyDown("s"))
+        if (Greenfoot.isKeyDown("d"))
         {
             start = 1;
             tim.mark();
