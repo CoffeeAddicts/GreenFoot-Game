@@ -13,12 +13,33 @@ public class Platform extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
+    private int speed = 4;
+    private int leftTurn = 270;
+    private int rightTurn = 480;
+    
     Platform()
     {
-        getImage().scale(60, 20);
+        getImage().scale(100, 30);
     }
     public void act()
     {
-        // Add your action code here.
+        setLocation(getX() + speed,getY());
+        Actor actor = getOneIntersectingObject(null);
+        if(actor!=null)
+        {
+            actor.setLocation(actor.getX()+speed,actor.getY());
+        }
+            
+        if(atTurningPoint())
+        {
+            speed = -speed;
+        }   
+    }
+    
+    public boolean atTurningPoint()
+    {
+        return (getX() <= leftTurn || getX() >= rightTurn);
     }
 }
+    
+    

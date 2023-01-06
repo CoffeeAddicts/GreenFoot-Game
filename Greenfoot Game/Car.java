@@ -13,47 +13,77 @@ public class Car extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     
-    int vSpeed = 0;
-    final double GRAVITY = 1;
+    private static final int speed = 7;
+    private int vSpeed = 0;
+    private static final int acceleration = 2;
+    private static final int jumpStrength = 30;
+    
     public void act()
     {
-        setGravity();
-        moveAround();
+        checkKeys();   
+        checkFall();
     }
-    public void setGravity()
+    
+    public void fall()
     {
-        Actor floor = getOneIntersectingObject(Floor.class);
-        Actor platform = getOneIntersectingObject(Platform.class);
-        Actor floor2 = (Actor) getWorld().getObjects(Floor.class).get(0);
-        Actor platform2 = (Actor) getWorld().getObjects(Platform.class).get(0);
-        
-        if(!isTouching(Floor.class))
-        {        
-            vSpeed += GRAVITY;
-            setLocation(getX(), getY()+ (vSpeed/2));
+        setLocation(getX(),getY()+vSpeed);
+        vSpeed = vSpeed + acceleration;
+    }
+    private void checkKeys()
+    {
+        if(Greenfoot.isKeyDown("d"))
+        {
+            //getImage().mirrorHorizontally();
+            moveRight();
+        }
+        if(Greenfoot.isKeyDown("a"))
+        {
+            //getImage().mirrorHorizontally();
+            moveLeft();
+        }
+        if(Greenfoot.isKeyDown("w"))
+        {
+            //getImage().mirrorHorizontally();
+            if(onGround())
+            {
+                jump();
+            }
+        }
+    }
+    public void jump()
+    {
+        setVSpeed(-jumpStrength);
+        fall();
+    }
+    public void setVSpeed(int speed)
+    {
+        vSpeed = speed;
+    }
+    private void checkFall()
+    {
+        if(onGround())
+        {
+            setVSpeed(0);
         }
         else
         {
-            vSpeed = 0;   
-            setLocation(getX(),floor2.getY()-60);
-        }
-        
-        if(isTouching(Platform.class))
-        {
-            vSpeed = 0;   
-            //setLocation(getX(),platform2.getY());
+            fall();
         }
     }
-        public void moveAround()
+    public boolean onGround()
     {
-        if(Greenfoot.isKeyDown("s"))
-        setLocation(getX(),getY()+3);
-        if(Greenfoot.isKeyDown("w"))
-        setLocation(getX(),getY()-10); 
-        if(Greenfoot.isKeyDown("a"))
-        setLocation(getX()-3,getY());
-        if(Greenfoot.isKeyDown("d"))
-        setLocation(getX()+3,getY());
+        Object under = getOneObjectAtOffset(0,getImage().getHeight()/2-8,null);
+        return under != null;
     }
+
+    public void moveRight()
+    {   
+        setLocation(getX() + speed, getY());
+    }
+    public void moveLeft()
+    {
+        setLocation(getX() - speed, getY());
+    }
+    
 
 }
