@@ -21,6 +21,7 @@ dependency4.type=UsesDependency
 dependency5.from=MyWorld
 dependency5.to=Car
 dependency5.type=UsesDependency
+<<<<<<< Updated upstream
 dependency6.from=MyWorld
 dependency6.to=Floor
 dependency6.type=UsesDependency
@@ -34,6 +35,15 @@ editor.fx.0.y=43
 height=877
 package.numDependencies=7
 package.numTargets=8
+=======
+editor.fx.0.height=0
+editor.fx.0.width=0
+editor.fx.0.x=0
+editor.fx.0.y=0
+height=877
+package.numDependencies=5
+package.numTargets=7
+>>>>>>> Stashed changes
 project.charset=windows-1252
 publish.hasSource=false
 publish.locked=true
