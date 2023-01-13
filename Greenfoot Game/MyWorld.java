@@ -17,6 +17,9 @@ public class MyWorld extends World
     public static final int HIGH = 600;
     public static final int CELL = 1;
     
+    SimpleTimer tim = new SimpleTimer();
+    Counter CountDown = new Counter();
+    int start = 0;
   
         
     public MyWorld()
@@ -38,13 +41,34 @@ public class MyWorld extends World
         Actor platform3 = new Platform();
         addObject(platform3,getWidth()-350,getHeight()-350);
         
-        
+        addObject(CountDown,80,20);
+        CountDown.setValue(60);
         
     }
     
     public void act()
     {
+        if (start == 1)
+        {
+            if (tim.millisElapsed() > 1000)
+            {
+                CountDown.add(-1);
+                tim.mark();
+            }
+            
+            if (tim.millisElapsed() < 0)
+            {
+                Greenfoot.stop();
+            }
+        }
+    
         
+        if (Greenfoot.isKeyDown("d"))
+        {
+            start = 1;
+            tim.mark();
+        }
+    
     }
     
 
