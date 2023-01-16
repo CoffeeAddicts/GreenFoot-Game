@@ -35,6 +35,7 @@ public class Car extends Actor
         {
             setImage("blob_right-removebg-preview.png");
             moveRight();
+            System.out.println("Should go right");
         }
         if(Greenfoot.isKeyDown("a"))
         {
@@ -46,6 +47,11 @@ public class Car extends Actor
             if(onGround())
             {
                 jump();
+                if (getOneObjectAtOffset(15, 0, Platform.class) == null) 
+                {
+                    System.out.println("Should fall");
+                    fall();
+                }
             }
         }
     }
