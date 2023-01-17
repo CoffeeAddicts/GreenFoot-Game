@@ -18,12 +18,13 @@ public class Car extends Actor
     private static final int acceleration = 2;
     private static final int jumpStrength = 30;
     
+    
     public void act()
     {
         checkKeys();   
         checkFall();
     }
-    
+
     public void fall()
     {
         setLocation(getX(),getY()+vSpeed);
@@ -35,7 +36,6 @@ public class Car extends Actor
         {
             setImage("blob_right-removebg-preview.png");
             moveRight();
-            System.out.println("Should go right");
         }
         if(Greenfoot.isKeyDown("a"))
         {
@@ -49,7 +49,6 @@ public class Car extends Actor
                 jump();
                 if (getOneObjectAtOffset(15, 0, Platform.class) == null) 
                 {
-                    System.out.println("Should fall");
                     fall();
                 }
             }
