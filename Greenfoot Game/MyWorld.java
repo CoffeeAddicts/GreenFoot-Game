@@ -19,7 +19,7 @@ public class MyWorld extends World
     
     SimpleTimer tim = new SimpleTimer();
     Counter CountDown = new Counter();
-    int start = 0;
+    int start = 1;
   
         
     public MyWorld()
@@ -56,20 +56,10 @@ public class MyWorld extends World
                 tim.mark();
             }
             
-            if (tim.millisElapsed() < 0)
+        if (CountDown.getValue() == 0)
             {
                 Greenfoot.stop();
             }
         }
-    
-        
-        if (Greenfoot.isKeyDown("d"))
-        {
-            start = 1;
-            tim.mark();
-        }
-    
     }
-    
-
 }
