@@ -23,8 +23,10 @@ public class Car extends Actor
     {
         checkKeys();   
         checkFall();
+    
     }
-
+    
+    
     public void fall()
     {
         setLocation(getX(),getY()+vSpeed);

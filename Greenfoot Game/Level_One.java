@@ -32,6 +32,9 @@ public class Level_One extends World
         Actor floor = new Floor();
         addObject(floor,getWidth()/2,getHeight());
         
+        Actor enemy = new Enemy();
+        addObject(enemy,getWidth(),getHeight()/2);
+    
         
         
     }
