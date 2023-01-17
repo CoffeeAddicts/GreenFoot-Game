@@ -47,7 +47,7 @@ public class MyWorld extends World
         Ghost ghost = new Ghost();
         addObject(ghost, 450,200);
         
-        BetterPlatform plat = new BetterPlatform(250,200);
+        BetterPlatform plat = new BetterPlatform(150,270,200,470,1,0,0);
         addObject(plat, 450,400);
         
     }
@@ -61,8 +61,7 @@ public class MyWorld extends World
                 CountDown.add(-1);
                 tim.mark();
             }
-            
-        if (CountDown.getValue() == 0)
+            if (CountDown.getValue() == 0)
             {
                 Greenfoot.stop();
             }

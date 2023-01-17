@@ -10,14 +10,17 @@ public class Ghost extends Actor
 {
     private final int GRAVITY = 1;
     private final int STEP = 3;
-    private final int ABOVEOFFSET = 30;
+    private final int ABOVEOFFSET = 20;
     private int velocity;
+    private int jumpStrength = 15;
     public Ghost()
     {
         velocity = 0;
+        GreenfootImage image = getImage();
+        image.scale(image.getWidth()/2, image.getHeight()/2);
     }
     public void act()
-    {
+    {     
         fall();
         if(Greenfoot.isKeyDown("w") && isOnSolidGround()) jump();
         move();
@@ -46,7 +49,7 @@ public class Ghost extends Actor
     }
     public void jump()
     {
-        velocity = -20;
+        velocity = -jumpStrength;
     }
     public void move()
     {
@@ -56,11 +59,15 @@ public class Ghost extends Actor
         {
             x -=STEP;
             setImage("blob_left-removebg-preview.png");
+            GreenfootImage image = getImage();
+            image.scale(image.getWidth()/2, image.getHeight()/2);
         }
         if(Greenfoot.isKeyDown("d")&& canMoveRight())
         {
             x +=STEP;
             setImage("blob_right-removebg-preview.png");
+            GreenfootImage image = getImage();
+            image.scale(image.getWidth()/2, image.getHeight()/2);
         }
         setLocation(x,y);
     }

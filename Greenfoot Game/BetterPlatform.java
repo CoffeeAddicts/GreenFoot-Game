@@ -8,36 +8,90 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BetterPlatform extends Actor
 {
-    private int speed = 4;
-    private int leftTurn = 270;
-    private int rightTurn = 480;
+    private int speed;
+    private int leftTurn;
+    private int rightTurn;
+    private int up;
+    private int down;
 
     public BetterPlatform(){
-        this(100, 25);
+        this(100, 25,0,0,0,0,0);
     }
-    public BetterPlatform(int width, int height) 
+    public BetterPlatform(
+        int width,
+        int height,
+        int leftTurnChanged,
+        int rightTurnChanged,
+        int speedChanged,
+        int upChanged,
+        int downChanged) 
     {
         GreenfootImage image = getImage();
         image.scale(width,height);
         setImage(image);
+        
+        setLeftTurn(leftTurnChanged);
+        setRightTurn(rightTurnChanged);
+        setSpeed(speedChanged);
+        setUp(upChanged);
+        setDown(downChanged);
     }
     public void act()
     {
-        setLocation(getX() + speed,getY());
-        Actor actor = getOneIntersectingObject(null);
-        if(actor!=null)
+
+        if(leftTurn != 0 || rightTurn != 0)
         {
-            actor.setLocation(actor.getX()+speed,actor.getY());
+            setLocation(getX() + speed,getY());
+            Actor actor = getOneIntersectingObject(null);
+            if(actor!=null)
+            {
+                actor.setLocation(actor.getX()+speed,actor.getY());
+            }
+            if(atTurningPointX())
+            {
+                speed = -speed;
+            } 
         }
-            
-        if(atTurningPoint())
+        if(up != 0 || down != 0)
         {
-            speed = -speed;
-        }   
+            setLocation(getX(),getY()+ speed);
+            Actor actor = getOneIntersectingObject(null);
+            if(actor!=null)
+            {
+                actor.setLocation(actor.getX(),actor.getY()+speed);
+            }
+            if(atTurningPointY())
+            {
+                speed = -speed;
+            }   
+        }
     }
-    
-    public boolean atTurningPoint()
+    public void setLeftTurn(int leftTurnChanged)
+    {
+        leftTurn = leftTurnChanged;
+    }
+    public void setRightTurn(int rightTurnChanged)
+    {
+        rightTurn = rightTurnChanged;
+    }
+    public void setSpeed(int speedChanged)
+    {
+        speed = speedChanged;
+    }
+    public void setUp(int upChanged)
+    {
+        up = upChanged;
+    }
+    public void setDown(int downChanged)
+    {
+        down = downChanged;
+    }
+    public boolean atTurningPointX()
     {
         return (getX() <= leftTurn || getX() >= rightTurn);
+    }
+        public boolean atTurningPointY()
+    {
+        return (getY() <= up || getY() >= down);
     }
 }
