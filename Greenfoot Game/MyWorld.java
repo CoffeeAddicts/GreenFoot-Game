@@ -28,21 +28,27 @@ public class MyWorld extends World
 
         
         
-        Actor car = new Car();
-        addObject(car,getWidth()/2,getHeight()/2);
+        //Actor ghost = new Ghost();
+        //addObject(ghost,getWidth()/2,getHeight()/2);
         
-        Actor floor = new Floor();
-        addObject(floor,getWidth()/2,getHeight());
+        //Actor floor = new Floor();
+        //addObject(floor,getWidth()/2,getHeight());
         
-        Actor platform = new Platform();
-        addObject(platform,getWidth()-100,getHeight()-150);
-        Actor platform2 = new Platform();
-        addObject(platform2,getWidth()-250,getHeight()-250);
-        Actor platform3 = new Platform();
-        addObject(platform3,getWidth()-350,getHeight()-350);
+        //Actor platform = new Platform();
+        //addObject(platform,getWidth()-100,getHeight()-150);
+        //Actor platform2 = new Platform();
+        //addObject(platform2,getWidth()-250,getHeight()-250);
+        //Actor platform3 = new Platform();
+        //addObject(platform3,getWidth()-350,getHeight()-350);
         
         addObject(CountDown,80,20);
         CountDown.setValue(60);
+        
+        Ghost ghost = new Ghost();
+        addObject(ghost, 450,200);
+        
+        BetterPlatform plat = new BetterPlatform(250,200);
+        addObject(plat, 450,400);
         
     }
     

@@ -26,8 +26,8 @@ public class Level_One extends World
 
         
         
-        Actor car = new Car();
-        addObject(car,getWidth()/2,getHeight()/2);
+        Actor ghost = new Ghost();
+        addObject(ghost,getWidth()/2,getHeight()/2);
         
         Actor floor = new Floor();
         addObject(floor,getWidth()/2,getHeight());
