@@ -13,6 +13,7 @@ public class PortalToNextLvl extends Actor
     {
         GreenfootImage image = getImage();
         image.scale(image.getWidth()/2, image.getHeight()/2);
+        
     }
     public void act()
     {

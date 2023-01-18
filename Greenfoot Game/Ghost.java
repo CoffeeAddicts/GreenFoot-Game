@@ -13,8 +13,7 @@ public class Ghost extends Actor
     private final int ABOVEOFFSET = 20;
     private int velocity;
     private int jumpStrength = 15;
-    
-    
+        
     
     public Ghost()
     {
@@ -28,7 +27,7 @@ public class Ghost extends Actor
         fall();
         if(Greenfoot.isKeyDown("w") && isOnSolidGround()) jump();
         move();
-        if(CheckPortal())DeathScreen();
+        if(CheckPortal())LevelTwo();
         if(CheckJewel())
         {
             Level_One myWorld = (Level_One) getWorld();
@@ -39,6 +38,12 @@ public class Ghost extends Actor
             Level_One myWorld = (Level_One) getWorld();
             myWorld.IncrementClock();
         }
+        if(CheckEnemy())
+        {
+            DeathScreenLevelOne();
+        }
+        if(CheckPotion())SetJump();
+        if(CheckCookie())Win();
         
     }
     public void fall()
@@ -143,16 +148,33 @@ public class Ghost extends Actor
         
         return canMoveRight;     
     }
-    public void DeathScreen()
+    public void DeathScreenLevelOne()
     {
+        Level_One myWorld = (Level_One) getWorld();
+        myWorld.SetStageStart(0);
+        
         GameOverScreen gameOver = new GameOverScreen();
         Greenfoot.setWorld(gameOver);
+    }
+    public void LevelTwo()
+    {
+        Level_Two level_Two = new Level_Two();
+        Greenfoot.setWorld(level_Two);
+    }
+    public void Win()
+    {
+         YouWonScreen win = new YouWonScreen();
+         Greenfoot.setWorld(win);   
     }
     public boolean CheckPortal()
     {
         boolean touchingPortal = false;
         
-        if(getOneIntersectingObject(PortalToNextLvl.class) != null) touchingPortal = true;
+        if(getOneIntersectingObject(PortalToNextLvl.class) != null)
+        {
+            touchingPortal = true;
+            Greenfoot.playSound("portal.wav"); 
+        }
         
         return touchingPortal;
     }
@@ -176,8 +198,48 @@ public class Ghost extends Actor
         {
             getWorld().removeObject(clock);    
             touchingClock = true;
+            Greenfoot.playSound("clockgrab.wav");
         }
         return touchingClock;
+    }
+    public boolean CheckEnemy()
+    {
+        boolean touchingEnemy = false;
+        Actor enemy = getOneIntersectingObject(Enemy.class);
+        if(enemy != null) 
+        {   
+            Greenfoot.playSound("enemyhityou.wav");
+            touchingEnemy = true;
+        }
+        return touchingEnemy;
+    }
+    public void SetJump()
+    {
+        jumpStrength = jumpStrength + 10;
+    }
+    public boolean CheckPotion()
+    {
+        boolean touchingPotion = false;
+        Actor potion = getOneIntersectingObject(Potion.class);
+        if(potion != null) 
+        {   
+            getWorld().removeObject(potion);  
+            touchingPotion = true;
+            Greenfoot.playSound("clockgrab.wav");
+        }
+        return touchingPotion;
+    }
+        public boolean CheckCookie()
+    {
+        boolean touchingCookie = false;
+        Actor cookie = getOneIntersectingObject(Cookie.class);
+        if(cookie != null) 
+        {   
+            getWorld().removeObject(cookie);  
+            touchingCookie = true;
+            Greenfoot.playSound("biscuitgrab.wav");
+        }
+        return touchingCookie;
     }
     
     

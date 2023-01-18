@@ -16,18 +16,19 @@ public class GameOverScreen extends World
     
     GreenfootSound backgroundMusic = new GreenfootSound("youlose.mp3");
     int stagestart = 1;
+    PlayAgain button = new PlayAgain();
     
     public GameOverScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 800, 1); 
         
-        PlayAgain button = new PlayAgain();
+
         addObject(button,500,340);
     }
     public void act()
     {
-        if (Greenfoot.mousePressed(this))
+        if (Greenfoot.mousePressed(button))
         {
             Greenfoot.setWorld(new Level_One()); 
         }
