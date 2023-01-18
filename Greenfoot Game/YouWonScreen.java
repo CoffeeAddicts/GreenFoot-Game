@@ -13,6 +13,10 @@ public class YouWonScreen extends World
      * Constructor for objects of class YouWonScreen.
      * 
      */
+    
+    GreenfootSound backgroundMusic = new GreenfootSound("youwin.mp3");
+    int stagestart = 1;
+    
     public YouWonScreen()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -27,6 +31,10 @@ public class YouWonScreen extends World
         if (Greenfoot.mousePressed(this))
         {
             Greenfoot.setWorld(new Level_One()); 
+        }
+        if (stagestart == 1);
+        {
+            backgroundMusic.playLoop();
         }
     }
 }
