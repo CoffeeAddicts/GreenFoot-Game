@@ -20,7 +20,7 @@ public class Level_One extends World
     
     SimpleTimer tim = new SimpleTimer();
     Counter CountDown = new Counter();
-    Counter JewelCount = new Counter();
+    CounterP JewelCount = new CounterP();
     int start = 1;
     
     Ghost ghost = new Ghost();
