@@ -21,7 +21,11 @@ public class PlayAgain extends Actor
     
     public void act()
     {
-        
+        if (Greenfoot.mousePressed(this))
+        {
+                Greenfoot.setWorld(new Level_One()); 
+        }
+        }
     }
-    }
+    
 
