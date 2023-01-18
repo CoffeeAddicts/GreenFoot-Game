@@ -1,23 +1,38 @@
 #Greenfoot project file
+<<<<<<< Updated upstream
 class.BetterPlatform.image=brick.png
 class.Clock.image=smiley2.png
 class.ClockCountdown.image=cooldown_0.png
 class.Cookie.image=cookie.png
+=======
+class.Car.image=blob_right-removebg-preview.png
+>>>>>>> Stashed changes
 class.Counter.image=Counter.png
+class.Enemy.image=enemy-right.png
 class.Floor.image=sand2.jpg
 class.GameOverScreen.image=gameover.jpg
+<<<<<<< Updated upstream
 class.Ghost.image=blob_right-removebg-preview.png
 class.Jewel.image=jewel-removebg-preview.png
+=======
+class.JewelScore.image=jewel-removebg-preview.png
+>>>>>>> Stashed changes
 class.Level_One.image=back_cave_new.png
 class.Level_Two.image=back_cave_new.png
 class.LivesHearts.image=lives-full.png
 class.MyWorld.image=brick.jpg
 class.Platform.image=Wall.jpg
+<<<<<<< Updated upstream
 class.PlayAgain.image=play-again-button-removebg-preview.png
 class.PortalToNextLvl.image=gate-removebg-preview.png
 class.YouWonScreen.image=you-won-screen.png
 dependency1.from=GameOverScreen
 dependency1.to=PlayAgain
+=======
+class.PortalToNextLvl.image=gate-removebg-preview.png
+dependency1.from=Level_One
+dependency1.to=Car
+>>>>>>> Stashed changes
 dependency1.type=UsesDependency
 dependency10.from=Level_One
 dependency10.to=BetterPlatform
@@ -52,6 +67,7 @@ dependency19.type=UsesDependency
 dependency2.from=GameOverScreen
 dependency2.to=Level_One
 dependency2.type=UsesDependency
+<<<<<<< Updated upstream
 dependency20.from=Ghost
 dependency20.to=BetterPlatform
 dependency20.type=UsesDependency
@@ -92,6 +108,36 @@ editor.fx.0.y=43
 height=877
 package.numDependencies=23
 package.numTargets=20
+=======
+dependency3.from=Level_One
+dependency3.to=Enemy
+dependency3.type=UsesDependency
+dependency4.from=MyWorld
+dependency4.to=SimpleTimer
+dependency4.type=UsesDependency
+dependency5.from=MyWorld
+dependency5.to=Counter
+dependency5.type=UsesDependency
+dependency6.from=MyWorld
+dependency6.to=Car
+dependency6.type=UsesDependency
+dependency7.from=MyWorld
+dependency7.to=Floor
+dependency7.type=UsesDependency
+dependency8.from=MyWorld
+dependency8.to=Platform
+dependency8.type=UsesDependency
+dependency9.from=Car
+dependency9.to=Platform
+dependency9.type=UsesDependency
+editor.fx.0.height=735
+editor.fx.0.width=813
+editor.fx.0.x=277
+editor.fx.0.y=43
+height=877
+package.numDependencies=9
+package.numTargets=11
+>>>>>>> Stashed changes
 project.charset=windows-1252
 publish.hasSource=false
 publish.locked=true
@@ -114,19 +160,28 @@ target1.width=120
 target1.x=0
 target1.y=0
 target10.height=70
+<<<<<<< Updated upstream
 target10.name=Level_Two
+=======
+target10.name=JewelScore
+>>>>>>> Stashed changes
 target10.showInterface=false
 target10.type=ClassTarget
 target10.width=120
 target10.x=0
 target10.y=0
 target11.height=70
+<<<<<<< Updated upstream
 target11.name=PlayAgain
+=======
+target11.name=MyWorld
+>>>>>>> Stashed changes
 target11.showInterface=false
 target11.type=ClassTarget
 target11.width=120
 target11.x=0
 target11.y=0
+<<<<<<< Updated upstream
 target12.height=70
 target12.name=GameOverScreen
 target12.showInterface=false
@@ -185,6 +240,10 @@ target19.x=0
 target19.y=0
 target2.height=70
 target2.name=Floor
+=======
+target2.height=70
+target2.name=GameOverScreen
+>>>>>>> Stashed changes
 target2.showInterface=false
 target2.type=ClassTarget
 target2.width=120
@@ -198,7 +257,11 @@ target20.width=120
 target20.x=0
 target20.y=0
 target3.height=70
+<<<<<<< Updated upstream
 target3.name=Jewel
+=======
+target3.name=Counter
+>>>>>>> Stashed changes
 target3.showInterface=false
 target3.type=ClassTarget
 target3.width=120
@@ -219,28 +282,44 @@ target5.width=120
 target5.x=0
 target5.y=0
 target6.height=70
+<<<<<<< Updated upstream
 target6.name=JewelScore
+=======
+target6.name=Car
+>>>>>>> Stashed changes
 target6.showInterface=false
 target6.type=ClassTarget
 target6.width=120
 target6.x=0
 target6.y=0
 target7.height=70
+<<<<<<< Updated upstream
 target7.name=BetterPlatform
+=======
+target7.name=Level_One
+>>>>>>> Stashed changes
 target7.showInterface=false
 target7.type=ClassTarget
 target7.width=120
 target7.x=0
 target7.y=0
 target8.height=70
+<<<<<<< Updated upstream
 target8.name=ClockCountdown
+=======
+target8.name=PortalToNextLvl
+>>>>>>> Stashed changes
 target8.showInterface=false
 target8.type=ClassTarget
 target8.width=120
 target8.x=0
 target8.y=0
 target9.height=70
+<<<<<<< Updated upstream
 target9.name=Clock
+=======
+target9.name=Enemy
+>>>>>>> Stashed changes
 target9.showInterface=false
 target9.type=ClassTarget
 target9.width=120
@@ -248,6 +327,10 @@ target9.x=0
 target9.y=0
 version=3.0.0
 width=1381
+<<<<<<< Updated upstream
 world.lastInstantiated=YouWonScreen
+=======
+world.lastInstantiated=Level_One
+>>>>>>> Stashed changes
 xPosition=0
 yPosition=0
