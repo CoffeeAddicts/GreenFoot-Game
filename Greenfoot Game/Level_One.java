@@ -19,13 +19,19 @@ public class Level_One extends World
     public static final int CELL = 1;
     
     GreenfootSound backgroundMusic = new GreenfootSound("stage1.wav");
+    /**
+     * For some reason, the background music wouldn't play the same way
+     * as the sound effects that play when the blob picks up items or 
+     * jumps. Only way to get it to play was to declare it like so
+     */
     
-    SimpleTimer tim = new SimpleTimer();
-    Counter CountDown = new Counter();
-    CounterP JewelCount = new CounterP();
+    SimpleTimer tim = new SimpleTimer(); //Creates a timer
+    Counter CountDown = new Counter(); //Creates the yellow counter
+    CounterP JewelCount = new CounterP(); //Creates the purple counter
     int start = 1;
     int stagestart = 1;
-    
+    //These two int variables help out with starting the timer and
+    //Playing the background music
     Ghost ghost = new Ghost();
         
     public Level_One()
@@ -38,7 +44,7 @@ public class Level_One extends World
         CountDown.setValue(60);
         addObject(JewelCount,180,20);
         JewelCount.setValue(0);
-        
+        //Declares the values of the counters
                
        
         Actor enemy = new Enemy();
@@ -123,15 +129,33 @@ public class Level_One extends World
                 CountDown.add(-1);
                 tim.mark();
             }
+            /**
+             * Greenfoot seems to only count in milliseconds rather than
+             * seconds. With this, every time it passes 1000 milliseconds
+             * (1 second) it will add -1 to the value of 60 which will
+             * make it count down
+             */
             if (CountDown.getValue() == 0)
             {
-                //Greenfoot.stop();
                 ghost.DeathScreen();
             }
+            /**
+             * This constantly checks the value of the timer. As soon as it
+             * hits 0 however, the game will go to the game over screen
+             */
             if (stagestart == 1)
             {
                 backgroundMusic.playLoop();
             }
+            /**
+             * This starts the music. The reason why this is under the act
+             * method and not under the world constructor is because placing 
+             * it there would make the music play constantly even if we 
+             * didn't click start. Whilst it is playing music as intended
+             * This would've been incredibly annoying to us as developers
+             * if we're having to listen to it constantly whilst working on
+             * the game
+             */
         }   
     }
     
