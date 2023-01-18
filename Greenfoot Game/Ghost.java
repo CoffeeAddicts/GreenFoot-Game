@@ -13,17 +13,33 @@ public class Ghost extends Actor
     private final int ABOVEOFFSET = 20;
     private int velocity;
     private int jumpStrength = 15;
+    
+    
+    
     public Ghost()
     {
         velocity = 0;
         GreenfootImage image = getImage();
         image.scale(image.getWidth()/2, image.getHeight()/2);
+        
     }
     public void act()
     {     
         fall();
         if(Greenfoot.isKeyDown("w") && isOnSolidGround()) jump();
         move();
+        if(CheckPortal())DeathScreen();
+        if(CheckJewel())
+        {
+            Level_One myWorld = (Level_One) getWorld();
+            myWorld.IncrementJewel();
+        }
+        if(CheckClock())
+        {
+            Level_One myWorld = (Level_One) getWorld();
+            myWorld.IncrementClock();
+        }
+        
     }
     public void fall()
     {
@@ -50,6 +66,7 @@ public class Ghost extends Actor
     public void jump()
     {
         velocity = -jumpStrength;
+        
     }
     public void move()
     {
@@ -125,5 +142,41 @@ public class Ghost extends Actor
         
         return canMoveRight;     
     }
+    public void DeathScreen()
+    {
+        GameOverScreen gameOver = new GameOverScreen();
+        Greenfoot.setWorld(gameOver);
+    }
+    public boolean CheckPortal()
+    {
+        boolean touchingPortal = false;
+        
+        if(getOneIntersectingObject(PortalToNextLvl.class) != null) touchingPortal = true;
+        
+        return touchingPortal;
+    }
+    public boolean CheckJewel()
+    {
+        boolean touchingJewel = false;
+        Actor jewel = getOneIntersectingObject(Jewel.class);
+        if(jewel != null) 
+        {
+            getWorld().removeObject(jewel);    
+            touchingJewel = true;
+        }
+        return touchingJewel;
+    }
+    public boolean CheckClock()
+    {
+        boolean touchingClock = false;
+        Actor clock = getOneIntersectingObject(Clock.class);
+        if(clock != null) 
+        {
+            getWorld().removeObject(clock);    
+            touchingClock = true;
+        }
+        return touchingClock;
+    }
+    
     
 }

@@ -18,25 +18,63 @@ public class Level_One extends World
     public static final int HIGH = 800;
     public static final int CELL = 1;
     
-  
+    SimpleTimer tim = new SimpleTimer();
+    Counter CountDown = new Counter();
+    Counter JewelCount = new Counter();
+    int start = 1;
+    
+    Ghost ghost = new Ghost();
         
     public Level_One()
     {   
         super(WIDE, HIGH, CELL, false); 
 
-        
-        
-        Actor ghost = new Ghost();
         addObject(ghost,75,760);
+        
+        addObject(CountDown,80,20);
+        CountDown.setValue(60);
+        addObject(JewelCount,180,20);
+        JewelCount.setValue(0);
         
         
         Actor enemy = new Enemy();
         addObject(enemy,getWidth(),getHeight()/2);
         
         CreatePlatforms();
+        PlaceJewels();
+        PlaceClocks();
+        
+        PortalToNextLvl portal = new PortalToNextLvl();
+        addObject(portal,35,120);
+        
+
     
         
         
+    }
+    
+    public void PlaceClocks()
+    {
+        Clock clock = new Clock();
+        addObject(clock,325,750);
+    }
+    
+    public void PlaceJewels()
+    {
+        Jewel jewel = new Jewel();
+        addObject(jewel,200,720);
+        
+        Jewel jewel2 = new Jewel();
+        addObject(jewel2,325,620);
+        
+        Jewel jewel3 = new Jewel();
+        addObject(jewel3,50,400);
+        
+        Jewel jewel4 = new Jewel();
+        addObject(jewel4,900,750);
+        
+        Jewel jewel5 = new Jewel();
+        addObject(jewel5,650,150);
     }
     
     public void CreatePlatforms()
@@ -75,7 +113,28 @@ public class Level_One extends World
     
     public void act()
     {
-        
+        if (start == 1)
+        {
+            if (tim.millisElapsed() > 1000)
+            {
+                CountDown.add(-1);
+                tim.mark();
+            }
+            if (CountDown.getValue() == 0)
+            {
+                //Greenfoot.stop();
+                ghost.DeathScreen();
+            }
+        }   
+    }
+    
+    public void IncrementJewel()
+    {
+        JewelCount.add(1);
+    }
+    public void IncrementClock()
+    {
+        CountDown.add(10);
     }
     
 
