@@ -17,6 +17,9 @@ public class YouWonScreen extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 800, 1); 
+        
+        PlayAgain button = new PlayAgain();
+        addObject(button,490,390);
     
 }
     public void act()
