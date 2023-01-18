@@ -18,10 +18,12 @@ public class Level_One extends World
     public static final int HIGH = 800;
     public static final int CELL = 1;
     
+    
     SimpleTimer tim = new SimpleTimer();
     Counter CountDown = new Counter();
     CounterP JewelCount = new CounterP();
     int start = 1;
+    int stagestart = 1;
     
     Ghost ghost = new Ghost();
         
@@ -36,7 +38,8 @@ public class Level_One extends World
         addObject(JewelCount,180,20);
         JewelCount.setValue(0);
         
-        
+        GreenfootSound myMusic = new GreenfootSound("stage1.wav");
+       
         Actor enemy = new Enemy();
         addObject(enemy,getWidth(),getHeight()/2);
         
@@ -110,7 +113,6 @@ public class Level_One extends World
         addObject(jumpPotPlat,50,450);
         
     }
-    
     public void act()
     {
         if (start == 1)

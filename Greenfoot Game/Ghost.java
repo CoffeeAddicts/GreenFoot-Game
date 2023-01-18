@@ -163,6 +163,7 @@ public class Ghost extends Actor
         {
             getWorld().removeObject(jewel);    
             touchingJewel = true;
+            Greenfoot.playSound("pickup.wav");
         }
         return touchingJewel;
     }
