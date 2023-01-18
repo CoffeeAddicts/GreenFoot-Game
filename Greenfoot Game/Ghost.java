@@ -66,6 +66,7 @@ public class Ghost extends Actor
     public void jump()
     {
         velocity = -jumpStrength;
+        Greenfoot.playSound("jump.mp3");
         
     }
     public void move()
