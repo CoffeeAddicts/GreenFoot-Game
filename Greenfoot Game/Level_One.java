@@ -45,32 +45,51 @@ public class Level_One extends World
         addObject(JewelCount,180,20);
         JewelCount.setValue(0);
         //Declares the values of the counters
-               
-       
-        Actor enemy = new Enemy();
-        addObject(enemy,getWidth(),getHeight()/2);
         
         CreatePlatforms();
         PlaceJewels();
         PlaceClocks();
+        PlaceEnemies();
+        PlacePotions();
+        
+
+    }
+    
+    public void PlacePortal()
+    {
         
         PortalToNextLvl portal = new PortalToNextLvl();
         addObject(portal,35,120);
-        
-
-    
-        
-        
+ 
     }
     
     public void PlaceClocks()
     {
         Clock clock = new Clock();
         addObject(clock,325,750);
+        
+        Clock clock2 = new Clock();
+        addObject(clock2,900,215);
+    }
+    
+    public void PlaceEnemies()
+    {
+        Enemy enemy = new Enemy(425,525,1,0,0);
+        addObject(enemy,475,580);
+    }
+    
+    public void PlacePotions()
+    {
+        Potion potion = new Potion();
+        addObject(potion,35,120);
     }
     
     public void PlaceJewels()
     {
+             /**
+             *This function creates jewels on preset coordinates
+             */
+            
         Jewel jewel = new Jewel();
         addObject(jewel,200,720);
         
@@ -89,6 +108,10 @@ public class Level_One extends World
     
     public void CreatePlatforms()
     {
+            /**
+             *This function creates platfroms on preset coordinates
+             */
+        
         BetterPlatform firstBox = new BetterPlatform(100,50,0,0,0,0,0);
         addObject(firstBox,200,775);
         
@@ -124,6 +147,8 @@ public class Level_One extends World
     {
         if (start == 1)
         {
+            if(JewelCount.getValue() == 5) PlacePortal();
+            
             if (tim.millisElapsed() > 1000)
             {
                 CountDown.add(-1);
@@ -137,7 +162,7 @@ public class Level_One extends World
              */
             if (CountDown.getValue() == 0)
             {
-                ghost.DeathScreen();
+                ghost.DeathScreenLevelOne();
             }
             /**
              * This constantly checks the value of the timer. As soon as it
@@ -158,7 +183,6 @@ public class Level_One extends World
              */
         }   
     }
-    
     public void IncrementJewel()
     {
         JewelCount.add(1);
@@ -167,8 +191,11 @@ public class Level_One extends World
     {
         CountDown.add(10);
     }
-    
-
+    public void SetStageStart(int newStageStart)
+    {
+        stagestart = newStageStart;
+        backgroundMusic.stop();
+    }
 }
 
 
