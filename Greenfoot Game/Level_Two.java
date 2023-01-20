@@ -13,7 +13,7 @@ public class Level_Two extends World
     public static final int CELL = 1;
     
     GreenfootSound backgroundMusic = new GreenfootSound("stage2.mp3");
-
+    int stagestart = 1;
     Ghost ghost = new Ghost();
     
     public Level_Two()
@@ -27,6 +27,11 @@ public class Level_Two extends World
         
         //Declares the values of the counters
     }
+    public void SetStageStart(int newStageStart)
+    {
+        stagestart = newStageStart;
+        backgroundMusic.stop();
+    }
     public void CreateCookie()
     {
         Cookie cookie = new Cookie();;
@@ -37,7 +42,12 @@ public class Level_Two extends World
             /**
              *This function creates platfroms on preset coordinates
              */
-        
+        if (stagestart == 1)
+        {
+            backgroundMusic.playLoop();
+        }    
+            
+            
         BetterPlatform box1 = new BetterPlatform(800,50,0,0,0,0,0);
         addObject(box1,600,775);
         BetterPlatform box2 = new BetterPlatform(800,50,0,0,0,0,0);
