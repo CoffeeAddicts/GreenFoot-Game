@@ -158,11 +158,17 @@ public class Ghost extends Actor
     }
     public void LevelTwo()
     {
+        Level_One myWorld = (Level_One) getWorld();
+        myWorld.SetStageStart(0);
+        
         Level_Two level_Two = new Level_Two();
         Greenfoot.setWorld(level_Two);
     }
     public void Win()
     {
+         Level_Two myWorld = (Level_Two) getWorld();
+         myWorld.SetStageStart(0);
+        
          YouWonScreen win = new YouWonScreen();
          Greenfoot.setWorld(win);   
     }
