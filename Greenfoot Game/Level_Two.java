@@ -42,10 +42,7 @@ public class Level_Two extends World
             /**
              *This function creates platfroms on preset coordinates
              */
-        if (stagestart == 1)
-        {
-            backgroundMusic.playLoop();
-        }    
+        
             
             
         BetterPlatform box1 = new BetterPlatform(800,50,0,0,0,0,0);
@@ -65,7 +62,10 @@ public class Level_Two extends World
     
     public void act()
     {
-        
+       if (stagestart == 1)
+        {
+            backgroundMusic.playLoop();
+        }     
     }
 
 }

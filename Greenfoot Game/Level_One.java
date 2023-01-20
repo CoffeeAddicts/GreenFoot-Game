@@ -40,10 +40,12 @@ public class Level_One extends World
 
         addObject(ghost,75,760);
         
-        addObject(CountDown,80,20);
+        addObject(CountDown,80,50);
         CountDown.setValue(60);
-        addObject(JewelCount,180,20);
+        getBackground().drawImage(new GreenfootImage("TIME", 30, Color.WHITE, null), 50, 10);
+        addObject(JewelCount,180,50);
         JewelCount.setValue(0);
+        getBackground().drawImage(new GreenfootImage("JEWELS", 30, Color.WHITE, null), 140, 10);
         //Declares the values of the counters
         
         CreatePlatforms();
@@ -76,6 +78,12 @@ public class Level_One extends World
     {
         Enemy enemy = new Enemy(425,525,1,0,0);
         addObject(enemy,475,580);
+    }
+    
+    public void TimeDisplay()
+    {
+        TIMEDISPLAY time = new TIMEDISPLAY();
+        addObject(time,80,20);
     }
     
     public void PlacePotions()
