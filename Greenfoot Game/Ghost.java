@@ -13,6 +13,10 @@ public class Ghost extends Actor
     private final int ABOVEOFFSET = 20;
     private int velocity;
     private int jumpStrength = 15;
+    
+    private boolean hasSword = false;
+    
+
         
     
     public Ghost()
@@ -27,24 +31,53 @@ public class Ghost extends Actor
         fall();
         if(Greenfoot.isKeyDown("w") && isOnSolidGround()) jump();
         move();
-        if(CheckPortal())LevelTwo();
-        if(CheckJewel())
-        {
-            Level_One myWorld = (Level_One) getWorld();
-            myWorld.IncrementJewel();
-        }
-        if(CheckClock())
-        {
-            Level_One myWorld = (Level_One) getWorld();
-            myWorld.IncrementClock();
-        }
-        if(CheckEnemy())
-        {
-            DeathScreenLevelOne();
-        }
-        if(CheckPotion())SetJump();
-        if(CheckCookie())Win();
         
+        PlayWorld();
+
+        
+    }
+    
+    public void PlayWorld()
+    {
+        if(this.getWorld() instanceof Level_One)
+        {
+            Level_One myWorld = (Level_One) getWorld();
+            if(CheckPortal())LevelTwo();
+
+            if(CheckEnemy())
+            {
+                DeathScreenLevelOne();
+            }
+            if(CheckJewel())
+            {
+                myWorld.IncrementJewel();
+            }
+            if(CheckClock())
+            {
+                myWorld.IncrementClock();
+            }
+        }
+        else if (this.getWorld() instanceof Level_Two)
+        {
+            if(CheckPortal())WinLevel();
+            Level_Two myWorld = (Level_Two) getWorld();
+            if(CheckEnemy())
+            {
+                DeathScreenLevelTwo();
+            }
+            if(CheckJewel())
+            {
+                myWorld.IncrementJewel();
+            }
+            if(CheckClock())
+            {
+                myWorld.IncrementClock();
+            }
+        }
+        
+        if(CheckSword()) hasSword = true;
+        if(CheckPotion())SetJump();
+        if(CheckCookie())Win();        
     }
     public void fall()
     {
@@ -156,6 +189,14 @@ public class Ghost extends Actor
         GameOverScreen gameOver = new GameOverScreen();
         Greenfoot.setWorld(gameOver);
     }
+    public void DeathScreenLevelTwo()
+    {
+        Level_Two myWorld = (Level_Two) getWorld();
+        myWorld.SetStageStart(0);
+        
+        GameOverScreen gameOver = new GameOverScreen();
+        Greenfoot.setWorld(gameOver);
+    }
     public void LevelTwo()
     {
         Level_One myWorld = (Level_One) getWorld();
@@ -164,9 +205,17 @@ public class Ghost extends Actor
         Level_Two level_Two = new Level_Two();
         Greenfoot.setWorld(level_Two);
     }
+    public void WinLevel()
+    {
+        Level_Two myWorld = (Level_Two) getWorld();
+        myWorld.SetStageStart(0);
+        
+        WinLevel winLevel = new WinLevel();
+        Greenfoot.setWorld(winLevel);
+    }
     public void Win()
     {
-         Level_Two myWorld = (Level_Two) getWorld();
+         WinLevel myWorld = (WinLevel) getWorld();
          myWorld.SetStageStart(0);
         
          YouWonScreen win = new YouWonScreen();
@@ -212,12 +261,29 @@ public class Ghost extends Actor
     {
         boolean touchingEnemy = false;
         Actor enemy = getOneIntersectingObject(Enemy.class);
-        if(enemy != null) 
+        if(enemy != null && !hasSword) 
         {   
             Greenfoot.playSound("enemyhityou.wav");
             touchingEnemy = true;
         }
+        else if ( enemy != null && hasSword)
+        {
+            Greenfoot.playSound("enemygettinghit.wav");
+            getWorld().removeObject(enemy); 
+        }
         return touchingEnemy;
+    }
+    public boolean CheckSword()
+    {
+        boolean touchingSword = false;
+        Actor sword = getOneIntersectingObject(Sword.class);
+        if(sword != null) 
+        {   
+            getWorld().removeObject(sword); 
+            //Greenfoot.playSound("enemyhityou.wav");
+            touchingSword = true;
+        }
+        return touchingSword;
     }
     public void SetJump()
     {

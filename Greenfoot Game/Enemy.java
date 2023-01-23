@@ -41,6 +41,8 @@ public class Enemy extends Actor
         image1.scale(image1.getWidth()/2, image1.getHeight()/2);
         image2.scale(image2.getWidth()/2, image2.getHeight()/2);
         
+        if(leftTurnChanged == 0) ChangeImage();
+        
     }
     public void act()
     {
