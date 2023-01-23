@@ -10,7 +10,9 @@ VERSION or DATE:
 HOW TO START THIS PROJECT:Open project.greenfoot
 AUTHORS:Bartlomiej Wojda, Julia Wozniak, Sam Eldridge
 USER INSTRUCTIONS:
+- Click on the menu to start the game
 - WASD to control Biscuit Blob
 - Pick up the jewels scattered across to proceed to the next level
 - Reach the end before the timer runs out!
 - Avoid the enemies!
+- Grab the biscuit!
