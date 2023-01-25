@@ -38,7 +38,7 @@ public class BetterPlatform extends Actor
     }
     public void act()
     {
-
+        //controls the platform if it is meant to be moving left and right
         if(leftTurn != 0 || rightTurn != 0)
         {
             setLocation(getX() + speed,getY());
@@ -52,6 +52,7 @@ public class BetterPlatform extends Actor
                 speed = -speed;
             } 
         }
+        //controls the platform if it is meant to be moving up and down
         if(up != 0 || down != 0)
         {
             setLocation(getX(),getY()+ speed);

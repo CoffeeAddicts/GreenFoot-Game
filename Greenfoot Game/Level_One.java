@@ -199,6 +199,7 @@ public class Level_One extends World
     {
         CountDown.add(10);
     }
+    //Allows for other classes to control the music and stop it when changing levels
     public void SetStageStart(int newStageStart)
     {
         stagestart = newStageStart;
