@@ -17,7 +17,10 @@ class.Potion.image=potion.png
 class.Sword.image=sword_normal.png
 class.WinLevel.image=back_cave_new.png
 class.YouWonScreen.image=you-won-screen.png
+<<<<<<< Updated upstream
 class.title.image=title.png
+=======
+>>>>>>> Stashed changes
 dependency1.from=WinLevel
 dependency1.to=Ghost
 dependency1.type=UsesDependency
@@ -147,11 +150,19 @@ dependency8.type=UsesDependency
 dependency9.from=Level_Two
 dependency9.to=Sword
 dependency9.type=UsesDependency
+<<<<<<< Updated upstream
 editor.fx.0.height=735
 editor.fx.0.width=813
 editor.fx.0.x=277
 editor.fx.0.y=43
 height=877
+=======
+editor.fx.0.height=1048
+editor.fx.0.width=1936
+editor.fx.0.x=-8
+editor.fx.0.y=-1088
+height=926
+>>>>>>> Stashed changes
 package.numDependencies=43
 package.numTargets=22
 project.charset=windows-1252
@@ -169,98 +180,154 @@ readme.x=10
 readme.y=10
 simulation.speed=49
 target1.height=70
+<<<<<<< Updated upstream
 target1.name=Cookie
+=======
+target1.name=TIMEDISPLAY
+>>>>>>> Stashed changes
 target1.showInterface=false
 target1.type=ClassTarget
 target1.width=120
 target1.x=0
 target1.y=0
 target10.height=70
+<<<<<<< Updated upstream
 target10.name=Level_Two
+=======
+target10.name=CounterP
+>>>>>>> Stashed changes
 target10.showInterface=false
 target10.type=ClassTarget
 target10.width=120
 target10.x=0
 target10.y=0
 target11.height=70
+<<<<<<< Updated upstream
 target11.name=PlayAgain
+=======
+target11.name=Cookie
+>>>>>>> Stashed changes
 target11.showInterface=false
 target11.type=ClassTarget
 target11.width=120
 target11.x=0
 target11.y=0
 target12.height=70
+<<<<<<< Updated upstream
 target12.name=GameOverScreen
+=======
+target12.name=WinLevel
+>>>>>>> Stashed changes
 target12.showInterface=false
 target12.type=ClassTarget
 target12.width=120
 target12.x=0
 target12.y=0
 target13.height=70
+<<<<<<< Updated upstream
 target13.name=Counter
+=======
+target13.name=Jewel
+>>>>>>> Stashed changes
 target13.showInterface=false
 target13.type=ClassTarget
 target13.width=120
 target13.x=0
 target13.y=0
 target14.height=70
+<<<<<<< Updated upstream
 target14.name=Sword
+=======
+target14.name=SimpleTimer
+>>>>>>> Stashed changes
 target14.showInterface=false
 target14.type=ClassTarget
 target14.width=120
 target14.x=0
 target14.y=0
 target15.height=70
+<<<<<<< Updated upstream
 target15.name=Level_One
+=======
+target15.name=Potion
+>>>>>>> Stashed changes
 target15.showInterface=false
 target15.type=ClassTarget
 target15.width=120
 target15.x=0
 target15.y=0
 target16.height=70
+<<<<<<< Updated upstream
 target16.name=Ghost
+=======
+target16.name=BetterPlatform
+>>>>>>> Stashed changes
 target16.showInterface=false
 target16.type=ClassTarget
 target16.width=120
 target16.x=0
 target16.y=0
 target17.height=70
+<<<<<<< Updated upstream
 target17.name=PortalToNextLvl
+=======
+target17.name=Level_Two
+>>>>>>> Stashed changes
 target17.showInterface=false
 target17.type=ClassTarget
 target17.width=120
 target17.x=0
 target17.y=0
 target18.height=70
+<<<<<<< Updated upstream
 target18.name=Enemy
+=======
+target18.name=PlayAgain
+>>>>>>> Stashed changes
 target18.showInterface=false
 target18.type=ClassTarget
 target18.width=120
 target18.x=0
 target18.y=0
 target19.height=70
+<<<<<<< Updated upstream
 target19.name=JEWELCOUNTER
+=======
+target19.name=GameOverScreen
+>>>>>>> Stashed changes
 target19.showInterface=false
 target19.type=ClassTarget
 target19.width=120
 target19.x=0
 target19.y=0
 target2.height=70
+<<<<<<< Updated upstream
 target2.name=WinLevel
+=======
+target2.name=Clock
+>>>>>>> Stashed changes
 target2.showInterface=false
 target2.type=ClassTarget
 target2.width=120
 target2.x=0
 target2.y=0
 target20.height=70
+<<<<<<< Updated upstream
 target20.name=LivesHearts
+=======
+target20.name=Ghost
+>>>>>>> Stashed changes
 target20.showInterface=false
 target20.type=ClassTarget
 target20.width=120
 target20.x=0
 target20.y=0
 target21.height=70
+<<<<<<< Updated upstream
 target21.name=CounterP
+=======
+target21.name=JEWELCOUNTER
+>>>>>>> Stashed changes
 target21.showInterface=false
 target21.type=ClassTarget
 target21.width=120
@@ -274,49 +341,77 @@ target22.width=120
 target22.x=0
 target22.y=0
 target3.height=70
+<<<<<<< Updated upstream
 target3.name=Jewel
+=======
+target3.name=title
+>>>>>>> Stashed changes
 target3.showInterface=false
 target3.type=ClassTarget
 target3.width=120
 target3.x=0
 target3.y=0
 target4.height=70
+<<<<<<< Updated upstream
 target4.name=SimpleTimer
+=======
+target4.name=Counter
+>>>>>>> Stashed changes
 target4.showInterface=false
 target4.type=ClassTarget
 target4.width=120
 target4.x=0
 target4.y=0
 target5.height=70
+<<<<<<< Updated upstream
 target5.name=Potion
+=======
+target5.name=Sword
+>>>>>>> Stashed changes
 target5.showInterface=false
 target5.type=ClassTarget
 target5.width=120
 target5.x=0
 target5.y=0
 target6.height=70
+<<<<<<< Updated upstream
 target6.name=TIMEDISPLAY
+=======
+target6.name=Level_One
+>>>>>>> Stashed changes
 target6.showInterface=false
 target6.type=ClassTarget
 target6.width=120
 target6.x=0
 target6.y=0
 target7.height=70
+<<<<<<< Updated upstream
 target7.name=BetterPlatform
+=======
+target7.name=PortalToNextLvl
+>>>>>>> Stashed changes
 target7.showInterface=false
 target7.type=ClassTarget
 target7.width=120
 target7.x=0
 target7.y=0
 target8.height=70
+<<<<<<< Updated upstream
 target8.name=Clock
+=======
+target8.name=Enemy
+>>>>>>> Stashed changes
 target8.showInterface=false
 target8.type=ClassTarget
 target8.width=120
 target8.x=0
 target8.y=0
 target9.height=70
+<<<<<<< Updated upstream
 target9.name=title
+=======
+target9.name=LivesHearts
+>>>>>>> Stashed changes
 target9.showInterface=false
 target9.type=ClassTarget
 target9.width=120
