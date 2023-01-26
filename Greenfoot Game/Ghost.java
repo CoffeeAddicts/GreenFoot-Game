@@ -107,12 +107,16 @@ public class Ghost extends Actor
         Greenfoot.playSound("jump.mp3");
         
     }
+    //Checks if certain keys are pressed and moves the actor
+    //Unless the actor is touching another object stopping it from moving in that direction
+    //Also changes the image of the actor to the corresponding side
     public void move()
     {
         int y = getY();
         int x = getX();
         if(Greenfoot.isKeyDown("a") && canMoveLeft())
         {
+            
             x -=STEP;
             if(hasSword)
             {
@@ -142,6 +146,8 @@ public class Ghost extends Actor
         }
         setLocation(x,y);
     }
+    //Checks if the actor is standing on an object
+    //If it is, then it stop the gravity
     public boolean isOnSolidGround() 
     {
         boolean isOnGround = false;
@@ -157,6 +163,7 @@ public class Ghost extends Actor
         
         return isOnGround;
     }
+    //Checks if actor's head touched an object stopping it from entering the object
     public boolean didBumpHead()
     {
         boolean bumpedHead = false;
@@ -196,6 +203,7 @@ public class Ghost extends Actor
         
         return canMoveRight;     
     }
+    //Moves the actor to the death screen fro level one
     public void DeathScreenLevelOne()
     {
         Level_One myWorld = (Level_One) getWorld();
@@ -204,6 +212,7 @@ public class Ghost extends Actor
         GameOverScreen gameOver = new GameOverScreen();
         Greenfoot.setWorld(gameOver);
     }
+    //Moves the actor to the death screen fro level two
     public void DeathScreenLevelTwo()
     {
         Level_Two myWorld = (Level_Two) getWorld();
@@ -212,6 +221,7 @@ public class Ghost extends Actor
         GameOverScreen gameOver = new GameOverScreen();
         Greenfoot.setWorld(gameOver);
     }
+    //Moves the actor to level two
     public void LevelTwo()
     {
         Level_One myWorld = (Level_One) getWorld();
@@ -220,6 +230,7 @@ public class Ghost extends Actor
         Level_Two level_Two = new Level_Two();
         Greenfoot.setWorld(level_Two);
     }
+    //Moves the actor to the final level
     public void WinLevel()
     {
         Level_Two myWorld = (Level_Two) getWorld();
@@ -236,6 +247,7 @@ public class Ghost extends Actor
          YouWonScreen win = new YouWonScreen();
          Greenfoot.setWorld(win);   
     }
+    //Checks if touching portal
     public boolean CheckPortal()
     {
         boolean touchingPortal = false;
@@ -248,6 +260,7 @@ public class Ghost extends Actor
         
         return touchingPortal;
     }
+    //Checks if touching jewel and removes the jewel
     public boolean CheckJewel()
     {
         boolean touchingJewel = false;
@@ -260,6 +273,7 @@ public class Ghost extends Actor
         }
         return touchingJewel;
     }
+    //Checks if touching Clock and removes the clock
     public boolean CheckClock()
     {
         boolean touchingClock = false;
@@ -272,6 +286,7 @@ public class Ghost extends Actor
         }
         return touchingClock;
     }
+    //Checks if touching enemy, if actor has a sword then the enemy is removed
     public boolean CheckEnemy()
     {
         boolean touchingEnemy = false;
@@ -288,6 +303,7 @@ public class Ghost extends Actor
         }
         return touchingEnemy;
     }
+    //Checks if touching sword and removes the sword
     public boolean CheckSword()
     {
         boolean touchingSword = false;
@@ -300,10 +316,12 @@ public class Ghost extends Actor
         }
         return touchingSword;
     }
+    //Allows for changing of the jumpStrength when potion is picked up
     public void SetJump()
     {
         jumpStrength = jumpStrength + 10;
     }
+    //Checks if touching potion and removes the potion
     public boolean CheckPotion()
     {
         boolean touchingPotion = false;
@@ -316,6 +334,7 @@ public class Ghost extends Actor
         }
         return touchingPotion;
     }
+    //Checks if touching cookie and removes the cookie
         public boolean CheckCookie()
     {
         boolean touchingCookie = false;

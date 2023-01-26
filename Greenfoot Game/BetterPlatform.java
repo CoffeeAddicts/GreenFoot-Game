@@ -75,14 +75,17 @@ public class BetterPlatform extends Actor
     {
         rightTurn = rightTurnChanged;
     }
+    //Allows for speed to be changed by other classes
     public void setSpeed(int speedChanged)
     {
         speed = speedChanged;
     }
+    //Allows for up to be changed by other classes
     public void setUp(int upChanged)
     {
         up = upChanged;
     }
+    //Allows for down attribute to be changed by other classes
     public void setDown(int downChanged)
     {
         down = downChanged;

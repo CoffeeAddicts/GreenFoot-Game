@@ -23,6 +23,9 @@ public class Clock extends Actor
     
     public void act()
     {
+        //Allows for the object  to hover in place.
+        //Every 10 frames the objects moves and when it reachs a top point it stops 
+        //and changes it's direction
         if(counter == 0)
         {
             setLocation(getX(),getY() - interval);  
