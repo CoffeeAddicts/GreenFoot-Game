@@ -114,14 +114,29 @@ public class Ghost extends Actor
         if(Greenfoot.isKeyDown("a") && canMoveLeft())
         {
             x -=STEP;
-            setImage("blob_left-removebg-preview.png");
+            if(hasSword)
+            {
+                setImage("blob_sword_left.png");
+            }
+            else
+            {
+               setImage("blob_left-removebg-preview.png"); 
+            }
+            
             GreenfootImage image = getImage();
             image.scale(image.getWidth()/2, image.getHeight()/2);
         }
         if(Greenfoot.isKeyDown("d")&& canMoveRight())
         {
             x +=STEP;
-            setImage("blob_right-removebg-preview.png");
+            if(hasSword)
+            {
+                setImage("blob_sword_right.png");
+            }
+            else
+            {
+               setImage("blob_right-removebg-preview.png"); 
+            }
             GreenfootImage image = getImage();
             image.scale(image.getWidth()/2, image.getHeight()/2);
         }
